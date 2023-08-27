@@ -1,0 +1,118 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    /* definindo o diplay como grid */
+    display: grid;
+    /* Definindo que o template vai ter 3 linhas, a primeira com 120px, a segunda com 1fr (tamanho relativo) e a terceira com 60px que servirá como rodape*/
+    grid-template-rows: 120px 1fr 60px;
+    /* Definindo que o template irá usar apenas uma linhas com tamanho relativo de 1fr (1 fragmento) */
+    grid-template-columns: 1fr;
+    /* Definindo os nomes da areas (que nesse caso ficou igual aos nomes das classes), se alterar a ordem também altera a visualização no navegaor*/
+    grid-template-areas: 
+        "cabecalho" 
+        "principal" 
+        "rodape";
+}
+
+.cabecalho{
+    /* Definindo que a classe cabecalho irá ser a área cabecalho */
+    grid-area: cabecalho;
+    background-color: #1B67c0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    /* Colocando o cabeçalho na frente de todos os elemento e assim mostrar o box-shadow */
+    z-index: 1;
+    box-shadow: 0px 4px 9px -2px rgba(0, 0, 0, 0.75);
+}
+.cabecalho > h1 {
+    margin: 0;
+    font-weight: 300;
+    font-size: 2.8rem;
+}
+
+.cabecalho > h2 {
+    margin: 0;
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+
+.principal{
+    /* Definindo que a classe principal irá ser a área principal */
+    grid-area: principal;
+    /* Definindo a area do conteudo usado os 100 vh usando no body menos 180px que é os 120 da cabeçalho e 60 do rodapé */
+    height: calc(100vh - 180px);
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.conteudo{
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.rodape{
+    /* Definindo que a classe rodape irá ser a área rodape */
+        grid-area: rodape;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    color: #444;
+
+}
+
+.modulos{
+    display: flex;
+    /* Possibilita a quebra de linha no flexbox */
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.modulo{
+    /* Defini o quanto cada elemento vai ocupar a tela, no nosso caso ele vai ocupar apenas 32% da tela */
+    flex-basis: 32%;
+}
+
+.modulo > h3{
+    margin: 0;
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: #1867c0;
+}
+
+.modulo > ul{
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.modulo > ul > li {
+    padding: 7px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.modulo > ul > li > a{
+    display: flex;
+    text-decoration: none;
+    color: #222;
+}
+
+.modulo > ul > li:hover{
+    background-color: #eee;
+}
