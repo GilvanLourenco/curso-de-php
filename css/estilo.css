@@ -117,6 +117,7 @@ body{
 
 .modulo > ul > li:hover{
     background-color: #eee;
+    font-size: 1.2rem;
 }
 
 .modulo.verde {border: 2px solid #4caf50}
